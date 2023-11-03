@@ -10,6 +10,8 @@ pipeline {
             }
         }
         stage('Deleting the existing images'){
+            steps{
+                
             sh 'docker rmi -f $(docker images -aq)'
         }
     }
