@@ -9,6 +9,11 @@ pipeline {
             git 'https://github.com/FalakAshok/nodejs-demo.git'
             }
         }
+        stage('Deleting the existing containers'){
+            steps{
+                sh 'docker rm -vf $(docker ps -aq)'
+            }
+        }
         stage('Deleting the existing images'){
             steps{
                 
