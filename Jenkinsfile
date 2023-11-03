@@ -9,6 +9,10 @@ pipeline {
             git 'https://github.com/FalakAshok/nodejs-demo.git'
             }
         }
+        stage('Deleting the existing images'){
+            sh 'docker rmi -f $(docker images -aq)'
+        }
+    }
 
         stage('Build docker image') {
             steps {  
